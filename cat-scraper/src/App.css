@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  #root {
+    position: relative;
+  }
+  
+  .App {
+    text-align: center;
+    width: 1090px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .App-header {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-size: calc(10px + 2vmin);
+  }
+  
+  .App-search-button {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .SearchButton:focus {
+    color: #fff;
+    background-color: #1E8449;
+    border-color: #239B56 ;
+    box-shadow: 0 0 0 0.2rem rgba(72,180,97,.5);
+    outline: none;
+  }
+  
+  .SearchButton {
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: auto;
+    border: none;
+    background-color: #27AE60;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: white;
+    font-weight: 600;
+    width: 80px;
+  }
+  
+  .SearchBar {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .SearchBar:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  }
+  
+  .ProfilePicture {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-right: -20px;
+  }
+  
+  .CatProfile {
+    margin-right: 20px;
+  }
+  
+  .EachProfile {
+    width: 350px;
+    height: 235px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+  }
+  
+  .Container {
+    position: relative;
+    width: 350px;
+    height: 235px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+  
+  .AddButton {
+    object-fit: cover;
+    width: 350px;
+    height: 235px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background-color: white;
+    border: none;
+    /* border-radius: 5px; */
+  }
+  
+  .ButtonImg {
+    opacity: 1;
+    display: block;
+    width: 300px;
+    height: 200px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    padding: 30px;
+  }
+  
+  .Middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .Container:hover .ButtonImg {
+    opacity: 0.3;
+  }
+  
+  .Container:hover .Middle {
+    opacity: 1;
+  }
+  
+  .text {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+  
+  .ProfilePictureClicked::after {
+    flex: auto;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background: white no-repeat 50% 75px;
+    background-size: 60px auto;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+  }
+  
+  .Preview {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: -ms-flex;
+    display: -webkit-flex;
+    opacity: 0;
+    transition: opacity 1s;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 75%;
+    pointer-events: none;
+  }
+  
+  .ProfilePictureClicked .Preview {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .Preview::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    background: white;
+    transition: opacity 1s;
+  }
+  
+  .ProfilePictureClicked .Preview::before {
+    opacity: 1;
+  }
+  
+  .action--close {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    z-index: 150;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: scale3d(0.6, 0.6, 1);
+    transform: scale3d(0.6, 0.6, 1);
+  }
+  
+  .action {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    vertical-align: top;
+    color: #6bd68a;
+    border: none;
+    background: none;
+  }
+  
+  .fa::before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+  }
+  
+  .text-hidden {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+  }
+  
+  .SelectedCat {
+    display: block;
+    z-index: 120;
+    margin-top: 20px;
+    object-fit: contain;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden
+  }
+  
+  
+  .SelectedCatDisplay {
+    position: absolute;
+    display: block;
+    margin-top: 20px;
+  }
+  
+  .SelectedCatNameMargin {
+    margin-top: 20px;
+  }
