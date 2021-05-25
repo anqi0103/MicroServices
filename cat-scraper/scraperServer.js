@@ -6,8 +6,8 @@ const path = require('path');
 const app = express();
 
 // Here is the example that how I scrape bird image from Wikipedia for my teammates
-app.get('/birds', (req, res) => {
-    axios('https://en.wikipedia.org/wiki/Bird')
+app.get('/scraped/:target', (req, res) => {
+    axios('https://en.wikipedia.org/wiki/' + req.params["target"])
         .then(response => {
             const html = response.data;
             const $ = cheerio.load(html);
