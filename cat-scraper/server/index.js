@@ -26,10 +26,14 @@ app.get('/scraped/:target', (req, res) => {
 
 // Here is how I will use data from my teammates
 app.get('/cats', (req, res) => {
-    axios('https://myteammaates-microservice/cats')
+    axios('http://flip2.engr.oregonstate.edu:7749/?search_name=cats')
         .then(response => {
             const data = response.data;
-            res.status(200).send(data);
+            const arr = [];
+            for (const key of Object.keys(data)) {
+                arr.push(data[key]);
+            }
+            res.status(200).send(arr);
         })
         .catch(console.error);
 });
