@@ -77,7 +77,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="">
-          <header className="App-header">Cat Community</header>
+          <header className="App-header">Cat Community</header>      
           <div className="App-search-button">
             <input
               type="text"
